@@ -11,7 +11,15 @@ $(function(){
                 setTimeout(function () {
                     window.location.reload(1);
                 }, 2000);
-                $("#title").after("<p>Gano "+ player + "</p>");
+                $("#title").after('<p>Gana '+ player + '</p>');
+                console.log("Gana "+ player);
+            }
+            else if (nadieGana()){
+                setTimeout(function () {
+                    window.location.reload(1);
+                }, 2000);
+                $("#title").after('<p>Nadie ganó :(</p>');
+                console.log('Todos perdieron');
             }
             cambioJugador();
            
@@ -126,6 +134,17 @@ $(function(){
     function ganadorDiagonal2(){
         if($('#three').text() ==  $('#five').text() && $('#five').text() ==  $('#seven').text() && $('#three').children().length > 0){
             return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    function nadieGana(){
+        if ($('#one').children().length > 0 && $('#two').children().length > 0 && $('#three').children().length > 0 && $('#four').children().length > 0
+        && $('#five').children().length > 0 && $('#six').children().length > 0 && $('#seven').children().length > 0
+        && $('#eight').children().length > 0 && $('#nine').children().length > 0) {
+           return true;
         }
         else {
             return false;
